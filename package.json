@@ -1,0 +1,24 @@
+{
+  "name": "react-native-aes-encryption",
+  "version": "0.1.0",
+  "description": "cross platform AES encryption lib for React Native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fanday/react-native-aes-encryption.git"
+  },
+  "keywords": [
+    "AES",
+    "React",
+    "Native"
+  ],
+  "author": "fandaydai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fanday/react-native-aes-encryption/issues"
+  },
+  "homepage": "https://github.com/fanday/react-native-aes-encryption#readme"
+}
