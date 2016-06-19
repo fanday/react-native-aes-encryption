@@ -31,10 +31,12 @@ rejecter:(RCTPromiseRejectBlock)reject) {
 RCT_EXPORT_METHOD(decrypt:(NSString *)encryptedText key:(NSString *)key iv:(NSString *)iv resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
     StringEncryption *cryptLib = [[StringEncryption alloc]init];
-    NSData * decryptData = [cryptLib decrypt:[encryptedText dataUsingEncoding:NSUTF8StringEncoding] key:key iv:iv];
-    NSString *decryptText = [decryptData base64EncodedStringWithSeparateLines:0];
-    if(decryptText){
-        resolve(decryptText);
+    NSData * encryptData = [[NSData alloc] initWithBase64EncodedString: encryptedText];
+    NSData * decryptData = [cryptLib decrypt:encryptData key:key iv:iv];
+    NSString * decryptedText = [[NSString alloc] initWithData:decryptData encoding:NSUTF8StringEncoding];
+    //NSString *decryptText = [decryptData base64EncodingWithLineLength:0];
+    if(decryptedText){
+        resolve(decryptedText);
     }else{
         reject(@"-1", @"decrypt failed", nil);
     }
@@ -44,10 +46,9 @@ RCT_EXPORT_METHOD(decrypt:(NSString *)encryptedText key:(NSString *)key iv:(NSSt
 RCT_EXPORT_METHOD(generateRandomIV:(NSInteger)length resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
     StringEncryption *cryptLib = [[StringEncryption alloc]init];
-    NSData *ivData = [cryptLib generateRandomIV:length];
-    NSString *ivText = [ivData base64EncodedStringWithSeparateLines:0];
-    if(ivText){
-        resolve(ivText);
+    NSString * iv = [[[[StringEncryption alloc] generateRandomIV:11]  base64EncodingWithLineLength:0] substringToIndex:length];
+    if(iv){
+        resolve(iv);
     }else{
         reject(@"-1", @"get iv failed", nil);
     }

@@ -42,5 +42,6 @@ char *NewBase64Encode(
 // added by Hiroshi Hashiguchi
 - (NSString *)base64EncodedStringWithSeparateLines:(BOOL)separateLines;
 - (NSString *) base64EncodingWithLineLength:(unsigned int) lineLength;
+- (id) initWithBase64EncodedString:(NSString *) string;
 
 @end
