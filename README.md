@@ -1,5 +1,5 @@
 # react-native-aes-encryption
-cross platform AES encryption
+cross platform AES encryption(For Android and iOS)
 
 # How to use
 rnpm install react-native-aes-encryption
