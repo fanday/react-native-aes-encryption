@@ -6,3 +6,5 @@ rnpm install react-native-aes-encryption
 
 # Code From
 Cross-platform-AES-encryption[https://github.com/Pakhee/Cross-platform-AES-encryption]
+
+#THIS REPO IS NO LONGER MAINTAINED.
